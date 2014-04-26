@@ -33,7 +33,7 @@ public class Panel extends JPanel{
 
 
 class MainPanel extends Panel{
-	MainPanel(final Okno okno, final PlayPanel playPanel){
+	MainPanel(final PlayPanel playPanel){
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		Wyjscie wyjscie = new Wyjscie();
 		wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -44,11 +44,8 @@ class MainPanel extends Panel{
 		graj.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				removePanel(okno);
-				okno.repaint();
-				okno.add(playPanel);
-				okno.repaint();
-				
+				setOpaque(false);
+				playPanel.setOpaque(true);				
 			}
 			
 		});
@@ -60,7 +57,7 @@ class MainPanel extends Panel{
 		add(Box.createVerticalStrut(10));
 		add(wyjscie);
 		add(Box.createVerticalGlue());
-		setVisible(true);
+		setOpaque(false);
 	}
 	
 	void removePanel(final Okno okno){
@@ -89,6 +86,6 @@ class PlayPanel extends Panel{
 	//add(Box.createVerticalStrut(10));
 	add(wyjscie);
 	add(Box.createVerticalGlue());
-	//setVisible(false);
+	setOpaque(false);
 }
 }
