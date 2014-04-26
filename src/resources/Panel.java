@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 
@@ -17,7 +18,7 @@ public class Panel extends JPanel{
 	private BufferedImage tlo;
 	Panel(){
 		super();
-	//	setBounds(0,0,800,600);
+		setBounds(0,0,800,600);
 		try {
 			tlo = ImageIO.read(new File("src/graphics/farma.jpg"));
 		} catch (IOException e) {
@@ -33,7 +34,12 @@ public class Panel extends JPanel{
 
 
 class MainPanel extends Panel{
-	MainPanel(final PlayPanel playPanel){
+	
+	private static JLayeredPane lpane;
+	private static PlayPanel ppanel;	
+	
+	MainPanel(final JLayeredPane lp, final PlayPanel pp){
+		lpane = lp;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		Wyjscie wyjscie = new Wyjscie();
 		wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -44,8 +50,7 @@ class MainPanel extends Panel{
 		graj.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				setOpaque(false);
-				playPanel.setOpaque(true);				
+				move(lp,pp);
 			}
 			
 		});
@@ -57,11 +62,12 @@ class MainPanel extends Panel{
 		add(Box.createVerticalStrut(10));
 		add(wyjscie);
 		add(Box.createVerticalGlue());
-		setOpaque(false);
+		//setOpaque(true);
 	}
-	
-	void removePanel(final Okno okno){
-		okno.remove(this);
+	void move(final JLayeredPane lp, final PlayPanel pp){		//przekazuje ale dziala
+		lp.moveToBack(this);
+		setVisible(false);
+		pp.setVisible(true);
 	}
 }
 
@@ -86,6 +92,6 @@ class PlayPanel extends Panel{
 	//add(Box.createVerticalStrut(10));
 	add(wyjscie);
 	add(Box.createVerticalGlue());
-	setOpaque(false);
+	//setOpaque(true);
 }
 }
