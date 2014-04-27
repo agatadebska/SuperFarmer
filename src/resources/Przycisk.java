@@ -26,30 +26,24 @@ class Wyjscie extends Przycisk implements ActionListener{
 	}
 }
 
-class Zasady extends Przycisk implements ActionListener{
-	Zasady(){
+class Zasady extends Przycisk{
+	Zasady(ActionListener al){
 		super("Zasady");
-		addActionListener(this);
+		addActionListener(al);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }
-/*
-class Graj extends Przycisk implements ActionListener{
-	Graj(Okno o, MainPanel m, PlayPanel p){
+
+class Graj extends Przycisk{
+	Graj(ActionListener al){
 		super("Graj");
-		addActionListener(this);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+		addActionListener(al);
+	}	
 }
-*/
+
+class Powrot extends Przycisk{
+	Powrot(ActionListener al){
+		super("Powrot");
+		addActionListener(al);
+	}	
+}

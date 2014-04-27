@@ -2,16 +2,22 @@ package resources;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
-public class Okno extends JFrame{
+public class Okno extends JFrame implements ActionListener{
+	
 	private JLayeredPane layeredPane = new JLayeredPane();
+	private PlayPanel playPanel = new PlayPanel((ActionListener)this);
+	private MainPanel mainPanel = new MainPanel((ActionListener)this);
+	private RulesPanel rulesPanel = new RulesPanel((ActionListener)this);	
 	private Integer height = new Integer(600);
 	private Integer width = new Integer(800);
+	
 	Okno(){
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(width, height));
@@ -25,20 +31,35 @@ public class Okno extends JFrame{
 		ImageIcon ikona = new ImageIcon("src/graphics/ikona.png");
 		setIconImage(ikona.getImage());
 		setTitle("SuperFarmer");
-		//FlowLayout layout = new FlowLayout();
-		//layout.set
-	//	setLayout(new FlowLayout());
 		
-		PlayPanel playPanel = new PlayPanel();
-		MainPanel mainPanel = new MainPanel(layeredPane, playPanel);
-		
-		//add(playPanel);
-		layeredPane.add(mainPanel, new Integer(0));
-		layeredPane.add(playPanel, new Integer(0));
+		layeredPane.add(mainPanel, new Integer(0), 3);
+		layeredPane.add(playPanel, new Integer(0), 2);
+		layeredPane.add(rulesPanel, new Integer(0), 1);
 		add(layeredPane);
-		layeredPane.moveToFront(mainPanel);
-		layeredPane.moveToBack(playPanel);
 		playPanel.setVisible(false);
+		rulesPanel.setVisible(false);
 		setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if(source instanceof Graj){
+			layeredPane.setPosition(mainPanel, 0);
+			mainPanel.setVisible(false);
+			playPanel.setVisible(true);
+		}
+		else if(source instanceof Zasady){
+			layeredPane.setPosition(rulesPanel, 4);
+			mainPanel.setVisible(false);
+			rulesPanel.setVisible(true);
+		}
+		else if(source instanceof Powrot){
+			layeredPane.setPosition(rulesPanel, 1);
+			layeredPane.setPosition(playPanel, 2);
+			layeredPane.setPosition(mainPanel, 3);
+			mainPanel.setVisible(true);
+			rulesPanel.setVisible(false);
+			playPanel.setVisible(false);
+		}
 	}
 }
