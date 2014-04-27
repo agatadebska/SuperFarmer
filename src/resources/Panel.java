@@ -16,11 +16,13 @@ import javax.swing.JPanel;
 
 public class Panel extends JPanel{
 	private BufferedImage tlo;
+	private Integer height = new Integer(600);
+	private Integer width = new Integer(800);
 	Panel(){
 		super();
-		setBounds(0,0,800,600);
+		setBounds(0,0, width, height);
 		try {
-			tlo = ImageIO.read(new File("src/graphics/farma.jpg"));
+			tlo = ImageIO.read(new File("src/graphics/tlo_new.jpg"));
 		} catch (IOException e) {
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
@@ -28,18 +30,19 @@ public class Panel extends JPanel{
 	}
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(tlo, 0, 0, 800, 600, null);
+		g.drawImage(tlo, 0, 0, width, height, null);
 	}
 }
 
 
 class MainPanel extends Panel{
 	
-	private static JLayeredPane lpane;
-	private static PlayPanel ppanel;	
+	//private static JLayeredPane lpane;
+	//private static PlayPanel ppanel;	
+	
 	
 	MainPanel(final JLayeredPane lp, final PlayPanel pp){
-		lpane = lp;
+		//lpane = lp;
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		Wyjscie wyjscie = new Wyjscie();
 		wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -53,7 +56,7 @@ class MainPanel extends Panel{
 				move(lp,pp);
 			}
 			
-		});
+		});	
 		
 		add(Box.createVerticalGlue());
 		add(graj);
