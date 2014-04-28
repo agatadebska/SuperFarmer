@@ -88,12 +88,26 @@ class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	
 	Powrot powrot = new Powrot(actionL);
 	powrot.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-	add(Box.createVerticalGlue());
+	
+	add(Box.createVerticalGlue());	
 	add(powrot);
 	add(Box.createVerticalStrut(10));
 	add(wyjscie);
-	add(Box.createVerticalGlue());	
+	add(Box.createVerticalGlue());
+	
+	/*setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+	
+	Kostka kostka1 = new Kostka(actionL);
+	kostka1.setAlignmentY(Component.LEFT_ALIGNMENT);
+	
+	Kostka kostka2 = new Kostka(actionL);
+	kostka2.setAlignmentY(Component.RIGHT_ALIGNMENT);
+	
+	add(Box.createHorizontalGlue());	
+	add(kostka1);
+	add(Box.createHorizontalStrut(10));
+	add(kostka2);
+	add(Box.createHorizontalGlue());*/
 	}
 	
 	protected void paintComponent(Graphics g){
