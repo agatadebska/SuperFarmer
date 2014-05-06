@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 public class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	private BufferedImage tlo;
 	
+	
 	PlayPanel(ActionListener actionL){								//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
 		
 		try {														//Wczytywanie obrazka (tlo)
@@ -23,31 +24,20 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 		}	
 		
 	setLayout(null);
-	JPanel panel_wym = new JPanel();
-	panel_wym.setOpaque(false);
-	Powrot powrot = new Powrot(actionL);
-	panel_wym.add(powrot);
-	add(panel_wym);
-	panel_wym.setBounds( 600, 0, 200, 600);
+	ExchangePanel exch_panel = new ExchangePanel(actionL);
+	PlayerPanel panel_pl1 = new PlayerPanel(actionL);
+	PlayerPanel panel_pl2 = new PlayerPanel(actionL);
+	DicePanel dice_panel = new DicePanel(actionL);
 	
-	JPanel panel_pl2 = new JPanel();
-	panel_pl2.setOpaque(true);
+	add(exch_panel);
+	add(panel_pl1);
 	add(panel_pl2);
+	add(dice_panel);
+	
+	panel_pl1.setBounds( 0, 400, 600, 200);
 	panel_pl2.setBounds( 0, 0, 600, 200);
 	
-	JPanel panel_pl1 = new JPanel();
-	panel_pl1.setOpaque(false);
-	add(panel_pl1);
-	panel_pl1.setBounds( 0, 400, 600, 200);
 	
-	JPanel panel_dice = new JPanel();
-	panel_dice.setOpaque(false);
-	add(panel_dice);
-	panel_dice.setBounds( 0, 200, 600, 200);
-	Kostka kostka1 = new Kostka(actionL);
-	panel_dice.add(kostka1);
-	Kostka kostka2= new Kostka(actionL);
-	panel_dice.add(kostka2);
 	
 	}	
 	protected void paintComponent(Graphics g){

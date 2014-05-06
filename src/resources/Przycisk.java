@@ -48,13 +48,26 @@ class Powrot extends Przycisk{
 	}	
 }
 
-class Kostka extends JButton{
+class Kostka1 extends JButton{
 	private Dimension wym;
-	Kostka(ActionListener al){
+	Kostka1(ActionListener al){
 		super("Kostka");
 		wym = new Dimension(80, 80);
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);
+	}
+	
+}
+
+class Kostka2 extends JButton{
+	private Dimension wym;
+	Kostka2(ActionListener al){
+		super("Kostka");
+		wym = new Dimension(80, 80);
+		setPreferredSize(wym);
+		setMinimumSize(wym);
+		setMaximumSize(wym);
+		
 	}
 }
