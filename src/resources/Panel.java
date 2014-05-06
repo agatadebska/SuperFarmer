@@ -1,4 +1,5 @@
 package resources;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -81,7 +82,24 @@ class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
 		}	
+	setLayout(new BoxLayout());
 		
+	JPanel panel_wym = new JPanel();
+	panel_wym.setPreferredSize(new Dimension(200, 600));
+	panel_wym.setMinimumSize(new Dimension(200, 600));
+	panel_wym.setMaximumSize(new Dimension(200, 600));
+	panel_wym.setOpaque(false);
+	Powrot powrot = new Powrot(actionL);
+	panel_wym.add(powrot);
+	add(panel_wym, BorderLayout.EAST);
+	
+	JPanel panel_pl2 = new JPanel();
+	panel_pl2.setPreferredSize(new Dimension(400, 200));
+	panel_pl2.setMinimumSize(new Dimension(400, 200));
+	panel_pl2.setMaximumSize(new Dimension(400, 200));
+	add(panel_pl2, BorderLayout.NORTH);
+	
+/*		
 	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 	Wyjscie wyjscie = new Wyjscie();
 	wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -94,7 +112,7 @@ class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	add(Box.createVerticalStrut(10));
 	add(wyjscie);
 	add(Box.createVerticalGlue());
-	
+*/	
 	/*setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 	
 	Kostka kostka1 = new Kostka(actionL);
