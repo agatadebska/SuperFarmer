@@ -1,10 +1,16 @@
 package resources;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Vector;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 class Przycisk extends JButton{
@@ -49,6 +55,26 @@ class Powrot extends Przycisk{
 		addActionListener(al);
 	}	
 }
+class Zwierze extends JButton{
+	private BufferedImage img;
+	private Dimension wym;
+	Zwierze(String s){
+		super();
+		String src = "src/graphics/"+s+".gif";
+		try {
+			img = ImageIO.read(new File(src));
+			setIcon(new ImageIcon(img));
+		} catch (IOException e) {
+			System.err.println("Blad odczytu obrazka");
+			e.printStackTrace();
+		}
+		wym = new Dimension(80,52);
+		setPreferredSize(wym);
+		setMinimumSize(wym);
+		setMaximumSize(wym);
+	}
+}
+
 
 class Kostka1 extends JButton{
 	private Dimension wym;
