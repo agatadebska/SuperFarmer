@@ -77,10 +77,10 @@ class Kostka1 extends JButton{
 	
 }
 
-class Kostka2 extends JButton implements ActionListener{
+class Kostka2 extends JButton{
 	private Dimension wym;
-	public static Vector<String> tabl_wyn;
-	Kostka2(){
+	public Vector<String> tabl_wyn;
+	Kostka2(ActionListener al){
 		super("Kostka2");
 		wym = new Dimension(80, 80);
 		tabl_wyn = new Vector<String>(12);
@@ -99,14 +99,14 @@ class Kostka2 extends JButton implements ActionListener{
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);
-		addActionListener(this);
+		addActionListener(al);
 	}
 	
-	public void actionPerformed(ActionEvent e) {
+	/*public void actionPerformed(ActionEvent e) {
 		Random r = new Random();
 		setText(tabl_wyn.elementAt(r.nextInt(12)));
 		setEnabled(false);
-	}
+	}*/
 }
 
 

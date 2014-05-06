@@ -29,7 +29,7 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	ExchangePanel exch_panel = new ExchangePanel(actionL);
 	PlayerPanel panel_pl1 = new PlayerPanel(actionL);
 	PlayerPanel panel_pl2 = new PlayerPanel(actionL);
-	DicePanel dice_panel = new DicePanel(actionL);
+	DicePanel dice_panel = new DicePanel();
 	
 	add(exch_panel);
 	add(panel_pl1);
