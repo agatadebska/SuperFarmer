@@ -52,7 +52,7 @@ class Kostka extends JButton{
 	private Dimension wym;
 	Kostka(ActionListener al){
 		super("Kostka");
-		wym = new Dimension(40, 40);
+		wym = new Dimension(80, 80);
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);

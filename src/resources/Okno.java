@@ -25,6 +25,7 @@ public class Okno extends JFrame implements ActionListener{
 		setMaximumSize(new Dimension(width, height));
 		setResizable(false);
 		setLayout(new BorderLayout());
+		setLocationRelativeTo(null);
 		layeredPane.setBounds(0, 0, width, height);
 		//add(lpane, BorderLayout.CENTER);
 		

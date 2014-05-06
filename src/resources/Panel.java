@@ -82,8 +82,8 @@ class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
 		}	
-	setLayout(new BoxLayout());
 		
+	setLayout(null);
 	JPanel panel_wym = new JPanel();
 	panel_wym.setPreferredSize(new Dimension(200, 600));
 	panel_wym.setMinimumSize(new Dimension(200, 600));
@@ -91,43 +91,38 @@ class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	panel_wym.setOpaque(false);
 	Powrot powrot = new Powrot(actionL);
 	panel_wym.add(powrot);
-	add(panel_wym, BorderLayout.EAST);
+	add(panel_wym);
+	panel_wym.setBounds( 600, 0, 200, 600);
 	
 	JPanel panel_pl2 = new JPanel();
 	panel_pl2.setPreferredSize(new Dimension(400, 200));
 	panel_pl2.setMinimumSize(new Dimension(400, 200));
 	panel_pl2.setMaximumSize(new Dimension(400, 200));
-	add(panel_pl2, BorderLayout.NORTH);
+	panel_pl2.setOpaque(false);
+	add(panel_pl2);
+	panel_pl2.setBounds( 0, 0, 600, 200);
 	
-/*		
-	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-	Wyjscie wyjscie = new Wyjscie();
-	wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
+	JPanel panel_pl1 = new JPanel();
+	panel_pl1.setPreferredSize(new Dimension(400, 200));
+	panel_pl1.setMinimumSize(new Dimension(400, 200));
+	panel_pl1.setMaximumSize(new Dimension(400, 200));
+	panel_pl1.setOpaque(false);
+	add(panel_pl1);
+	panel_pl1.setBounds( 0, 400, 600, 200);
 	
-	Powrot powrot = new Powrot(actionL);
-	powrot.setAlignmentX(Component.CENTER_ALIGNMENT);
-	
-	add(Box.createVerticalGlue());	
-	add(powrot);
-	add(Box.createVerticalStrut(10));
-	add(wyjscie);
-	add(Box.createVerticalGlue());
-*/	
-	/*setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-	
+	JPanel panel_dice = new JPanel();
+	panel_dice.setPreferredSize(new Dimension(400, 200));
+	panel_dice.setMinimumSize(new Dimension(400, 200));
+	panel_dice.setMaximumSize(new Dimension(400, 200));
+	panel_dice.setOpaque(false);
+	add(panel_dice);
+	panel_dice.setBounds( 0, 200, 600, 200);
 	Kostka kostka1 = new Kostka(actionL);
-	kostka1.setAlignmentY(Component.LEFT_ALIGNMENT);
+	panel_dice.add(kostka1);
+	Kostka kostka2= new Kostka(actionL);
+	panel_dice.add(kostka2);
 	
-	Kostka kostka2 = new Kostka(actionL);
-	kostka2.setAlignmentY(Component.RIGHT_ALIGNMENT);
-	
-	add(Box.createHorizontalGlue());	
-	add(kostka1);
-	add(Box.createHorizontalStrut(10));
-	add(kostka2);
-	add(Box.createHorizontalGlue());*/
-	}
-	
+	}	
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(tlo, 0, 0, width, height, null);
