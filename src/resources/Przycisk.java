@@ -2,6 +2,8 @@ package resources;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
+import java.util.Vector;
 
 import javax.swing.JButton;
 
@@ -50,24 +52,61 @@ class Powrot extends Przycisk{
 
 class Kostka1 extends JButton{
 	private Dimension wym;
+	public Vector<String> tabl_wyn;
 	Kostka1(ActionListener al){
-		super("Kostka");
+		super("Kostka1");
 		wym = new Dimension(80, 80);
+		tabl_wyn = new Vector<String>(12);
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("owca");
+		tabl_wyn.addElement("owca");
+		tabl_wyn.addElement("owca");
+		tabl_wyn.addElement("swinia");
+		tabl_wyn.addElement("krowa");
+		tabl_wyn.addElement("wilk");
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);
+		addActionListener(al);
 	}
 	
 }
 
-class Kostka2 extends JButton{
+class Kostka2 extends JButton implements ActionListener{
 	private Dimension wym;
-	Kostka2(ActionListener al){
-		super("Kostka");
+	public static Vector<String> tabl_wyn;
+	Kostka2(){
+		super("Kostka2");
 		wym = new Dimension(80, 80);
+		tabl_wyn = new Vector<String>(12);
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("krolik");
+		tabl_wyn.addElement("owca");
+		tabl_wyn.addElement("owca");
+		tabl_wyn.addElement("swinia");
+		tabl_wyn.addElement("swinia");
+		tabl_wyn.addElement("kon");
+		tabl_wyn.addElement("lis");
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);
-		
+		addActionListener(this);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		Random r = new Random();
+		setText(tabl_wyn.elementAt(r.nextInt(12)));
+		setEnabled(false);
 	}
 }
+
+

@@ -2,10 +2,12 @@ package resources;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
@@ -39,7 +41,21 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	
 	
 	
+	
 	}	
+	
+	/*public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		System.out.println("1");
+		if(source instanceof Kostka1){
+			Random r = new Random();
+			kostka1.setText(kostka1.tabl_wyn.elementAt(r.nextInt(12)));
+			System.out.println("2");
+			setEnabled(true);
+			}
+		}*/
+	
+	
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(tlo, 0, 0, width, height, null);
