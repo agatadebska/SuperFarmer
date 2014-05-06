@@ -13,7 +13,7 @@ public class Okno extends JFrame implements ActionListener{
 	
 	private JLayeredPane layeredPane = new JLayeredPane();
 	private PlayPanel playPanel = new PlayPanel((ActionListener)this);
-	private MainPanel mainPanel = new MainPanel((ActionListener)this);
+	private MenuPanel mainPanel = new MenuPanel((ActionListener)this);
 	private RulesPanel rulesPanel = new RulesPanel((ActionListener)this);	
 	private Integer height = new Integer(600);
 	private Integer width = new Integer(800);
