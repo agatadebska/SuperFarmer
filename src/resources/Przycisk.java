@@ -99,7 +99,8 @@ class Kostka1 extends JButton{
 		setMinimumSize(wym);
 		setMaximumSize(wym);
 		addActionListener(al);
-	}	
+	}
+	
 }
 
 class Kostka2 extends JButton{
@@ -126,6 +127,12 @@ class Kostka2 extends JButton{
 		setMaximumSize(wym);
 		addActionListener(al);
 	}
+	
+	/*public void actionPerformed(ActionEvent e) {
+		Random r = new Random();
+		setText(tabl_wyn.elementAt(r.nextInt(12)));
+		setEnabled(false);
+	}*/
 }
 
 
