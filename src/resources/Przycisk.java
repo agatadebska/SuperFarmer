@@ -46,14 +46,14 @@ class Graj extends Przycisk{
 	Graj(ActionListener al){
 		super("Graj");
 		addActionListener(al);
-	}	
+	}
 }
 
 class Powrot extends Przycisk{
 	Powrot(ActionListener al){
 		super("Powrot");
 		addActionListener(al);
-	}	
+	}
 }
 class Zwierze extends JButton{
 	private BufferedImage img;
@@ -100,7 +100,6 @@ class Kostka1 extends JButton{
 		setMaximumSize(wym);
 		addActionListener(al);
 	}
-	
 }
 
 class Kostka2 extends JButton{
@@ -127,12 +126,6 @@ class Kostka2 extends JButton{
 		setMaximumSize(wym);
 		addActionListener(al);
 	}
-	
-	/*public void actionPerformed(ActionEvent e) {
-		Random r = new Random();
-		setText(tabl_wyn.elementAt(r.nextInt(12)));
-		setEnabled(false);
-	}*/
 }
 
 
