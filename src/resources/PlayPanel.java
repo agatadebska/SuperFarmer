@@ -1,16 +1,12 @@
 package resources;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
 
 public class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	private BufferedImage tlo;
@@ -36,7 +32,7 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	add(panel_pl2);
 	add(dice_panel);
 	
-	panel_pl1.setBounds( 0, 400, 600, 200);
+	panel_pl1.setBounds( 0, 350, 600, 200);
 	panel_pl2.setBounds( 0, 0, 600, 200);
 	
 	
