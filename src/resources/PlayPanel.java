@@ -8,9 +8,15 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.sun.tools.javac.util.Pair;
+
 public class PlayPanel extends Panel{										//Klasa implementujaca panel do gry
 	private BufferedImage tlo;
-	
+	Player player1, player2;
+	PlayerPanel panel_pl1, panel_pl2;
+	DicePanel dice_panel;
+	ExchangePanel exch_panel;
+	Integer[] tabl_kostki = new Integer[2];
 	
 	PlayPanel(ActionListener actionL){								//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
 		
@@ -22,10 +28,10 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 		}	
 		
 	setLayout(null);
-	ExchangePanel exch_panel = new ExchangePanel(actionL);
-	PlayerPanel panel_pl1 = new PlayerPanel(actionL);
-	PlayerPanel panel_pl2 = new PlayerPanel(actionL);
-	DicePanel dice_panel = new DicePanel();
+	exch_panel = new ExchangePanel(actionL);
+	panel_pl1 = new PlayerPanel(actionL);
+	panel_pl2 = new PlayerPanel(actionL);
+	dice_panel = new DicePanel(tabl_kostki);
 	
 	add(exch_panel);
 	add(panel_pl1);
@@ -35,8 +41,8 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	panel_pl1.setBounds( 0, 350, 600, 200);
 	panel_pl2.setBounds( 0, 0, 600, 200);
 	
-	
-	
+	player1 = new Player();
+	player2 = new Player();
 	
 	}	
 	

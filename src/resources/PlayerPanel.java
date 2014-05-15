@@ -71,7 +71,6 @@ public class PlayerPanel extends JPanel{
 		animalPanel.add(Box.createHorizontalGlue());
 		add(animalPanel);
 		
-		kon.changeVal(5);
 	}
 }
 
@@ -97,18 +96,19 @@ class Tile extends JLabel{					//kafelek (obrazek)
 		if(s!="malypies" && s!="duzypies"){
 			setText(""+num);
 		}
-	//	if(num==0)
-	//		setVisible(false);
+		if(num==0)
+			setVisible(false);
 	
 	}
+	
 	public void changeVal(int i){
 		num = i;
 		setText(""+num);
-		/* 
+		 
 		 if(num==0)
 			setVisible(false);
 		else
 			setVisible(true);
-			*/
+			
 	}
 }
