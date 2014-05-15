@@ -20,16 +20,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PlayerPanel extends JPanel{
+	Tile krolik = new Tile("krolik");
+	Tile owca = new Tile("owca");
+	Tile swinia = new Tile("swinia");
+	Tile krowa = new Tile("krowa");
+	Tile kon = new Tile("kon");
+	Tile malypies = new Tile("malypies");
+	Tile duzypies = new Tile("duzypies");
+	
 	PlayerPanel(ActionListener actionL){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setOpaque(false);
-		Tile krolik = new Tile("krolik");
-		Tile owca = new Tile("owca");
-		Tile swinia = new Tile("swinia");
-		Tile krowa = new Tile("krowa");
-		Tile kon = new Tile("kon");
-		Tile malypies = new Tile("malypies");
-		Tile duzypies = new Tile("duzypies");
+		
 		JLabel player = new JLabel("Gracz 1");
 		player.setAlignmentX(CENTER_ALIGNMENT);
 		player.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
@@ -72,6 +74,10 @@ public class PlayerPanel extends JPanel{
 		add(animalPanel);
 		
 	}
+	void kon(int num){
+		kon.changeVal(num);
+	}
+	
 }
 
 

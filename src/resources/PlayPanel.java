@@ -17,6 +17,7 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	DicePanel dice_panel;
 	ExchangePanel exch_panel;
 	Integer[] tabl_kostki = new Integer[2];
+	Integer flaga_tury=1;
 	
 	PlayPanel(ActionListener actionL){								//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
 		
@@ -31,7 +32,7 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	exch_panel = new ExchangePanel(actionL);
 	panel_pl1 = new PlayerPanel(actionL);
 	panel_pl2 = new PlayerPanel(actionL);
-	dice_panel = new DicePanel(tabl_kostki);
+	dice_panel = new DicePanel(tabl_kostki, flaga_tury);
 	
 	add(exch_panel);
 	add(panel_pl1);
@@ -40,6 +41,8 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 	
 	panel_pl1.setBounds( 0, 350, 600, 200);
 	panel_pl2.setBounds( 0, 0, 600, 200);
+	
+	
 	
 	player1 = new Player();
 	player2 = new Player();
@@ -56,6 +59,10 @@ public class PlayPanel extends Panel{										//Klasa implementujaca panel do g
 			setEnabled(true);
 			}
 		}*/
+	
+	void change(){
+		
+	}
 	
 	
 	protected void paintComponent(Graphics g){

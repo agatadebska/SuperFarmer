@@ -13,8 +13,9 @@ public class DicePanel extends JPanel implements ActionListener{
 	public Kostka1 kostka1;
 	public Kostka2 kostka2;
 	Integer[] tabl_kostki;
-	
-	DicePanel(Integer[] tabl){
+	Integer flag;
+	DicePanel(Integer[] tabl, Integer flaga){
+		flag=flaga;
 		setOpaque(false);
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		setBounds( 0, 200, 600, 150);
@@ -82,6 +83,12 @@ public class DicePanel extends JPanel implements ActionListener{
 		if(kostka1.isEnabled()==false && kostka2.isEnabled()==false){
 			kostka1.setEnabled(true);
 			kostka2.setEnabled(true);
+			if(flag==1){
+				flag=2;
+			}
+			else if(flag==2){
+				flag=1;
+			}
 		}
 		
 	}

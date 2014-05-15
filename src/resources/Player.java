@@ -1,10 +1,8 @@
 package resources;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Vector;
 
-public class Player implements ActionListener{
+public class Player{
 
 	public Vector<Integer> tabl_player;
 	
@@ -16,9 +14,5 @@ public class Player implements ActionListener{
 	}
 
 
-	public void actionPerformed(ActionEvent a) {
-		
-		
-	}
 }
 
