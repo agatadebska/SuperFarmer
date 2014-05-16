@@ -70,8 +70,26 @@ public class PlayerPanel extends JPanel{
 		add(animalPanel);
 		
 	}
+	void krolik(int num){
+		krolik.changeVal(num);
+	}
+	void owca(int num){
+		owca.changeVal(num);
+	}
+	void swinia(int num){
+		swinia.changeVal(num);
+	}
+	void krowa(int num){
+		krowa.changeVal(num);
+	}
 	void kon(int num){
 		kon.changeVal(num);
+	}
+	void malyPies(int num){
+		malypies.changeVal(num);
+	}
+	void duzyPies(int num){
+		duzypies.changeVal(num);
 	}
 	
 }

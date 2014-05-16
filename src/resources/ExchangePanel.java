@@ -10,6 +10,18 @@
  	
  	public class ExchangePanel extends JPanel {
 		
+		static Zwierze owca1 = new Zwierze("owca1");
+		static Zwierze krolik6 = new Zwierze("krolik6");
+		static Zwierze swinia1 = new Zwierze("swinia1");
+		static Zwierze owca2 = new Zwierze("owca2");
+		static Zwierze krowa1 = new Zwierze("krowa1");
+		static Zwierze swinia3 = new Zwierze("swinia3");
+		static Zwierze kon1 = new Zwierze("kon1");
+		static Zwierze krowa2 = new Zwierze("krowa2");
+		static Zwierze malypies1 = new Zwierze("malypies1");
+		static Zwierze owca1pies = new Zwierze("owca1");
+		static Zwierze duzypies1 = new Zwierze("duzypies1");
+		static Zwierze krowa1pies = new Zwierze("krowa1");
 
 		ExchangePanel(ActionListener actionL){
 			setOpaque(false);
@@ -21,7 +33,8 @@
 			JLabel wym = new JLabel("Tabela wymiany");
 			wym.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
  			Powrot powrot = new Powrot(actionL);
-			Zwierze owca1 = new Zwierze("owca1");
+			
+ 			/*Zwierze owca1 = new Zwierze("owca1");
 			Zwierze krolik6 = new Zwierze("krolik6");
 			Zwierze swinia1 = new Zwierze("swinia1");
 			Zwierze owca2 = new Zwierze("owca2");
@@ -32,7 +45,7 @@
 			Zwierze malypies1 = new Zwierze("malypies1");
 			Zwierze owca1pies = new Zwierze("owca1");
 			Zwierze duzypies1 = new Zwierze("duzypies1");
-			Zwierze krowa1pies = new Zwierze("krowa1");
+			Zwierze krowa1pies = new Zwierze("krowa1");*/
 			
 			add(wym);
 			

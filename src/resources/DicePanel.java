@@ -49,7 +49,6 @@ public class DicePanel extends JPanel implements ActionListener{
 			else if(wynik==11){
 				PlayPanel.tabl_kostki[0] = 5;				//wilk
 			}
-			PlayPanel.tabl_kostki[0] = wynik;
 			kostka1.setText(kostka1.tabl_wyn.elementAt(wynik));
 			kostka1.setEnabled(false);
 			}
@@ -72,20 +71,21 @@ public class DicePanel extends JPanel implements ActionListener{
 			else if(wynik==11){
 				PlayPanel.tabl_kostki[1] = 5;				//lis
 			}
-			PlayPanel.tabl_kostki[1] = wynik;
 			kostka2.setText(kostka2.tabl_wyn.elementAt(wynik));
 			kostka2.setEnabled(false);
 			}
 		if(kostka1.isEnabled()==false && kostka2.isEnabled()==false){
 			kostka1.setEnabled(true);
 			kostka2.setEnabled(true);
-			if(PlayPanel.flaga_tury==1){
+			/*if(PlayPanel.flaga_tury==1){
 				PlayPanel.flaga_tury=2;
 			}
 			else if(PlayPanel.flaga_tury==2){
 				PlayPanel.flaga_tury=1;
 			}
-			PlayPanel.change();
+			*/
+			//PlayPanel.changeFlag();
+			PlayPanel.countAnimals();
 		}
 		
 	}
