@@ -77,14 +77,7 @@ public class DicePanel extends JPanel implements ActionListener{
 		if(kostka1.isEnabled()==false && kostka2.isEnabled()==false){
 			kostka1.setEnabled(true);
 			kostka2.setEnabled(true);
-			/*if(PlayPanel.flaga_tury==1){
-				PlayPanel.flaga_tury=2;
-			}
-			else if(PlayPanel.flaga_tury==2){
-				PlayPanel.flaga_tury=1;
-			}
-			*/
-			//PlayPanel.changeFlag();
+
 			PlayPanel.countAnimals();
 		}
 		

@@ -34,18 +34,6 @@
 			wym.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
  			Powrot powrot = new Powrot(actionL);
 			
- 			/*Zwierze owca1 = new Zwierze("owca1");
-			Zwierze krolik6 = new Zwierze("krolik6");
-			Zwierze swinia1 = new Zwierze("swinia1");
-			Zwierze owca2 = new Zwierze("owca2");
-			Zwierze krowa1 = new Zwierze("krowa1");
-			Zwierze swinia3 = new Zwierze("swinia3");
-			Zwierze kon1 = new Zwierze("kon1");
-			Zwierze krowa2 = new Zwierze("krowa2");
-			Zwierze malypies1 = new Zwierze("malypies1");
-			Zwierze owca1pies = new Zwierze("owca1");
-			Zwierze duzypies1 = new Zwierze("duzypies1");
-			Zwierze krowa1pies = new Zwierze("krowa1");*/
 			
 			add(wym);
 			
