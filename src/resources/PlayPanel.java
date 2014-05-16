@@ -268,7 +268,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.krowa2.setEnabled(true);
 			}
-			if(player1.count(1)<1){									//1 owca=1 maly pies
+			if(player1.count(1)<1 || player1.count(5)>0){			//1 owca=1 maly pies
 				ExchangePanel.malypies1.setEnabled(false);
 			}
 			else{
@@ -280,7 +280,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.owca1pies.setEnabled(true);
 			}
-			if(player1.count(4)<1){									//1 krowa=1 duzy pies
+			if(player1.count(3)<1 || player1.count(6)>0){			//1 krowa=1 duzy pies
 				ExchangePanel.duzypies1.setEnabled(false);
 			}
 			else{
@@ -342,7 +342,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.krowa2.setEnabled(true);
 			}
-			if(player2.count(1)<1){									//1 owca=1 maly pies
+			if(player2.count(1)<1 || player2.count(5)>0){			//1 owca=1 maly pies
 				ExchangePanel.malypies1.setEnabled(false);
 			}
 			else{
@@ -354,7 +354,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.owca1pies.setEnabled(true);
 			}
-			if(player2.count(4)<1){									//1 krowa=1 duzy pies
+			if(player2.count(3)<1 || player2.count(6)>0){			//1 krowa=1 duzy pies
 				ExchangePanel.duzypies1.setEnabled(false);
 			}
 			else{

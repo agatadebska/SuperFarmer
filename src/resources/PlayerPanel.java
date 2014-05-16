@@ -100,6 +100,7 @@ class Tile extends JLabel{					//kafelek (obrazek)
 
 	protected BufferedImage img;
 	protected int num = 0;
+	String name;
 	Tile(String s){
 		super();
 		try {	
@@ -108,6 +109,7 @@ class Tile extends JLabel{					//kafelek (obrazek)
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
 		}
+		name = new String(s);
 		//add(num);
 		setAlignmentY(Component.CENTER_ALIGNMENT);
 		setIcon(new ImageIcon(img));
@@ -125,12 +127,12 @@ class Tile extends JLabel{					//kafelek (obrazek)
 	
 	public void changeVal(int i){
 		num = i;
-		setText(""+num);
-		 
+		if(name != "malypies" && name!= "duzypies"){
+			setText(""+num);
+		}
 		 if(num==0)
 			setVisible(false);
 		else
 			setVisible(true);
-			
-	}
+		}
 }
