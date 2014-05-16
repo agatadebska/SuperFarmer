@@ -10,12 +10,10 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel implements ActionListener{
+
 	public Kostka1 kostka1;
 	public Kostka2 kostka2;
-	Integer[] tabl_kostki;
-	Integer flag;
-	DicePanel(Integer[] tabl, Integer flaga){
-		flag=flaga;
+	DicePanel(){
 		setOpaque(false);
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		setBounds( 0, 200, 600, 150);
@@ -28,8 +26,6 @@ public class DicePanel extends JPanel implements ActionListener{
 		add(Box.createHorizontalStrut(40));
 		add(kostka2);
 		add(Box.createHorizontalGlue());
-		
-		tabl_kostki = tabl;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -39,21 +35,21 @@ public class DicePanel extends JPanel implements ActionListener{
 			Random r = new Random();
 			int wynik = r.nextInt(12);
 			if (wynik>=0 && wynik<=5){
-				tabl_kostki[0] = 1;				//krolik
+				PlayPanel.tabl_kostki[0] = 1;				//krolik
 			}
 			else if(wynik>=6 && wynik<=8){
-				tabl_kostki[0] = 2;				//owca
+				PlayPanel.tabl_kostki[0] = 2;				//owca
 			}
 			else if(wynik==9){
-				tabl_kostki[0] = 3;				//swinia
+				PlayPanel.tabl_kostki[0] = 3;				//swinia
 			}
 			else if(wynik==10){
-				tabl_kostki[0] = 4;				//krowa
+				PlayPanel.tabl_kostki[0] = 4;				//krowa
 			}
 			else if(wynik==11){
-				tabl_kostki[0] = 5;				//wilk
+				PlayPanel.tabl_kostki[0] = 5;				//wilk
 			}
-			tabl_kostki[0] = wynik;
+			PlayPanel.tabl_kostki[0] = wynik;
 			kostka1.setText(kostka1.tabl_wyn.elementAt(wynik));
 			kostka1.setEnabled(false);
 			}
@@ -62,33 +58,34 @@ public class DicePanel extends JPanel implements ActionListener{
 			Random r = new Random();
 			int wynik = r.nextInt(12);
 			if (wynik>=0 && wynik<=5){
-				tabl_kostki[1] = 1;				//krolik
+				PlayPanel.tabl_kostki[1] = 1;				//krolik
 			}
 			else if(wynik==6 || wynik==7){
-				tabl_kostki[1] = 2;				//owca
+				PlayPanel.tabl_kostki[1] = 2;				//owca
 			}
 			else if(wynik==8 || wynik==9){
-				tabl_kostki[1] = 3;				//swinia
+				PlayPanel.tabl_kostki[1] = 3;				//swinia
 			}
 			else if(wynik==10){
-				tabl_kostki[1] = 4;				//kon
+				PlayPanel.tabl_kostki[1] = 4;				//kon
 			}
 			else if(wynik==11){
-				tabl_kostki[1] = 5;				//lis
+				PlayPanel.tabl_kostki[1] = 5;				//lis
 			}
-			tabl_kostki[1] = wynik;
+			PlayPanel.tabl_kostki[1] = wynik;
 			kostka2.setText(kostka2.tabl_wyn.elementAt(wynik));
 			kostka2.setEnabled(false);
 			}
 		if(kostka1.isEnabled()==false && kostka2.isEnabled()==false){
 			kostka1.setEnabled(true);
 			kostka2.setEnabled(true);
-			if(flag==1){
-				flag=2;
+			if(PlayPanel.flaga_tury==1){
+				PlayPanel.flaga_tury=2;
 			}
-			else if(flag==2){
-				flag=1;
+			else if(PlayPanel.flaga_tury==2){
+				PlayPanel.flaga_tury=1;
 			}
+			PlayPanel.change();
 		}
 		
 	}

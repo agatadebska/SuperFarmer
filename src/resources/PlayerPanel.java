@@ -1,11 +1,7 @@
 package resources;
-
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -15,11 +11,11 @@ import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PlayerPanel extends JPanel{
+	
 	Tile krolik = new Tile("krolik");
 	Tile owca = new Tile("owca");
 	Tile swinia = new Tile("swinia");
@@ -82,6 +78,8 @@ public class PlayerPanel extends JPanel{
 
 
 class Tile extends JLabel{					//kafelek (obrazek) 
+	
+
 	protected BufferedImage img;
 	protected int num = 0;
 	Tile(String s){

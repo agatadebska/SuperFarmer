@@ -11,6 +11,7 @@ import javax.swing.JLayeredPane;
 
 public class Okno extends JFrame implements ActionListener{
 	
+
 	private JLayeredPane layeredPane = new JLayeredPane();
 	private PlayPanel playPanel = new PlayPanel((ActionListener)this);
 	private MenuPanel mainPanel = new MenuPanel((ActionListener)this);

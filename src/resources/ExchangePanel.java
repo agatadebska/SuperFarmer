@@ -9,7 +9,9 @@
  	import javax.swing.JPanel;
  	
  	public class ExchangePanel extends JPanel {
- 		ExchangePanel(ActionListener actionL){
+		
+
+		ExchangePanel(ActionListener actionL){
 			setOpaque(false);
 			setOpaque(false);	
 			FlowLayout layout = new FlowLayout();
@@ -65,6 +67,8 @@
 	}
 	
 	class Label extends JLabel{
+		
+
 		Label(){
 			super("=");
 			setOpaque(false);

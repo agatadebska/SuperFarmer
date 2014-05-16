@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 
 public class Panel extends JPanel{
+
 	protected Integer height = new Integer(600);
 	protected Integer width = new Integer(800);
 	Panel(){

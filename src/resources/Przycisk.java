@@ -1,12 +1,10 @@
 package resources;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
 import java.util.Vector;
 
 import javax.imageio.ImageIO;
@@ -14,6 +12,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 class Przycisk extends JButton{
+
+
 	private Dimension wym;
 	Przycisk(String s){
 		super(s);
@@ -25,6 +25,8 @@ class Przycisk extends JButton{
 }
 
 class Wyjscie extends Przycisk implements ActionListener{
+
+
 	Wyjscie(){
 		super("Wyjscie");
 		addActionListener(this);
@@ -35,6 +37,9 @@ class Wyjscie extends Przycisk implements ActionListener{
 }
 
 class Zasady extends Przycisk{
+
+
+
 	Zasady(ActionListener al){
 		super("Zasady");
 		addActionListener(al);
@@ -43,6 +48,9 @@ class Zasady extends Przycisk{
 }
 
 class Graj extends Przycisk{
+
+
+
 	Graj(ActionListener al){
 		super("Graj");
 		addActionListener(al);
@@ -50,12 +58,17 @@ class Graj extends Przycisk{
 }
 
 class Powrot extends Przycisk{
+
+
+
 	Powrot(ActionListener al){
 		super("Powrot");
 		addActionListener(al);
 	}
 }
 class Zwierze extends JButton{
+
+	
 	private BufferedImage img;
 	private Dimension wym;
 	Zwierze(String s){
@@ -77,6 +90,8 @@ class Zwierze extends JButton{
 
 
 class Kostka1 extends JButton{
+
+	
 	private Dimension wym;
 	public Vector<String> tabl_wyn;
 	Kostka1(ActionListener al){
@@ -103,6 +118,8 @@ class Kostka1 extends JButton{
 }
 
 class Kostka2 extends JButton{
+
+	
 	private Dimension wym;
 	public Vector<String> tabl_wyn;
 	Kostka2(ActionListener al){
