@@ -32,6 +32,7 @@ public class DicePanel extends JPanel implements ActionListener{
 		
 		Object source = e.getSource();
 		if(source instanceof Kostka1){
+			PlayPanel.disableExchButtons();
 			Random r = new Random();
 			int wynik = r.nextInt(12);
 			if (wynik>=0 && wynik<=5){
@@ -54,6 +55,7 @@ public class DicePanel extends JPanel implements ActionListener{
 			}
 		
 		else if(source instanceof Kostka2){
+			PlayPanel.disableExchButtons();
 			Random r = new Random();
 			int wynik = r.nextInt(12);
 			if (wynik>=0 && wynik<=5){
