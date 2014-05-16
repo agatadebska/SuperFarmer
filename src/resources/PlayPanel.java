@@ -54,7 +54,7 @@ public class PlayPanel extends Panel implements ActionListener{
 	static void countAnimals(){
 		if(flaga_tury==1){
 			if(tabl_kostki[0]==5 || tabl_kostki[1]==5){
-				System.out.println("Wilk lub lis");
+				
 				if(tabl_kostki[0]==5 && tabl_kostki[1]==5){		//wypadl Wilk i Lis
 					if(player1.count(6)>0){						//jest Duzy Pies
 						player1.iloscDPies(0);
@@ -88,17 +88,17 @@ public class PlayPanel extends Panel implements ActionListener{
 				}
 			}
 			else if(tabl_kostki[0]==tabl_kostki[1] && tabl_kostki[0]<4){				//krolik-krolik, owca-owca lub swinia-swinia
-				System.out.println("wowo");
+				
 				if(tabl_kostki[0]==1){
-					System.out.println("2xKrolik");
+					
 					player1.iloscKrolik(player1.count(0)+((player1.count(0)+2)/2));
 				}
 				else if(tabl_kostki[0]==2){
-					System.out.println("2xOwca");
+					
 					player1.iloscOwca(player1.count(1)+((player1.count(1)+2)/2));
 				}
 				else if(tabl_kostki[0]==3){
-					System.out.println("2xSwinia");
+					
 					player1.iloscSwinia(player1.count(2)+((player1.count(2)+2)/2));
 				}
 			}
@@ -123,7 +123,7 @@ public class PlayPanel extends Panel implements ActionListener{
 		//-------------------------------player2------------------
 		if(flaga_tury==2){
 			if(tabl_kostki[0]==5 || tabl_kostki[1]==5){
-				System.out.println("Wilk lub lis");
+				
 				if(tabl_kostki[0]==5 && tabl_kostki[1]==5){		//wypadl Wilk i Lis
 					if(player2.count(6)>0){						//jest Duzy Pies
 						player2.iloscDPies(0);
@@ -157,17 +157,17 @@ public class PlayPanel extends Panel implements ActionListener{
 				}
 			}
 			else if(tabl_kostki[0]==tabl_kostki[1] && tabl_kostki[0]<4){				//krolik-krolik, owca-owca lub swinia-swinia
-				System.out.println("wowo");
+				
 				if(tabl_kostki[0]==1){
-					System.out.println("2xKrolik");
+					
 					player2.iloscKrolik(player2.count(0)+((player2.count(0)+2)/2));
 				}
 				else if(tabl_kostki[0]==2){
-					System.out.println("2xOwca");
+					
 					player2.iloscOwca(player2.count(1)+((player2.count(1)+2)/2));
 				}
 				else if(tabl_kostki[0]==3){
-					System.out.println("2xSwinia");
+					
 					player2.iloscSwinia(player2.count(2)+((player2.count(2)+2)/2));
 				}
 			}
@@ -372,9 +372,26 @@ public class PlayPanel extends Panel implements ActionListener{
 		super.paintComponent(g);
 		g.drawImage(tlo, 0, 0, width, height, null);
 	}
+	
+	static void disableExchButtons(){
+		ExchangePanel.owca1.setEnabled(false);
+		ExchangePanel.krolik6.setEnabled(false);
+		ExchangePanel.swinia1.setEnabled(false);
+		ExchangePanel.owca2.setEnabled(false);
+		ExchangePanel.krowa1.setEnabled(false);
+		ExchangePanel.swinia3.setEnabled(false);
+		ExchangePanel.kon1.setEnabled(false);
+		ExchangePanel.krowa2.setEnabled(false);
+		ExchangePanel.malypies1.setEnabled(false);
+		ExchangePanel.owca1pies.setEnabled(false);
+		ExchangePanel.duzypies1.setEnabled(false);
+		ExchangePanel.krowa1pies.setEnabled(false);
+		
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
+		disableExchButtons();
 		if(flaga_tury==1){
 			if(source == ExchangePanel.owca1){
 				player1.iloscKrolik(player1.count(0)-6);
