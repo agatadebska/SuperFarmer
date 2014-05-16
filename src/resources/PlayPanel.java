@@ -1,6 +1,7 @@
 package resources;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class PlayPanel extends Panel{
+public class PlayPanel extends Panel implements ActionListener{
 	
 
 	private BufferedImage tlo;
@@ -31,7 +32,7 @@ public class PlayPanel extends Panel{
 		}	
 		
 	setLayout(null);
-	exch_panel = new ExchangePanel(actionL);
+	exch_panel = new ExchangePanel(actionL, this);
 	panel_pl1 = new PlayerPanel(actionL);
 	panel_pl2 = new PlayerPanel(actionL);
 	dice_panel = new DicePanel();
@@ -188,10 +189,12 @@ public class PlayPanel extends Panel{
 				}
 			}
 		}
+		updateAnimals();
 		switchPlayer();
+		changeExDisable();
 	}
 
-	static void switchPlayer(){
+	static void updateAnimals(){
 		panel_pl1.krolik(player1.count(0));
 		panel_pl1.owca(player1.count(1));
 		panel_pl1.swinia(player1.count(2));
@@ -206,6 +209,8 @@ public class PlayPanel extends Panel{
 		panel_pl2.kon(player2.count(4));
 		panel_pl2.malyPies(player2.count(5));
 		panel_pl2.duzyPies(player2.count(6));
+	}
+	static void switchPlayer(){
 		if(PlayPanel.flaga_tury==1){
 		PlayPanel.flaga_tury=2;
 	}
@@ -213,10 +218,263 @@ public class PlayPanel extends Panel{
 			PlayPanel.flaga_tury=1;
 		}
 	}
-	
-	
+	static void changeExDisable(){
+		if(flaga_tury==1){
+			if(player1.count(0)<6){
+				ExchangePanel.owca1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca1.setEnabled(true);
+			}
+			if(player1.count(1)<1){
+				ExchangePanel.krolik6.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krolik6.setEnabled(true);
+			}
+			if(player1.count(1)<2){									//2 owce= 1 swinia
+				ExchangePanel.swinia1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.swinia1.setEnabled(true);
+			}
+			if(player1.count(2)<1){									//1 swinia=2 owce
+				ExchangePanel.owca2.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca2.setEnabled(true);
+			}
+			if(player1.count(2)<3){									//3 swnie=1 krowa
+				ExchangePanel.krowa1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa1.setEnabled(true);
+			}
+			if(player1.count(3)<1){									//1 krowa=3 swinie
+				ExchangePanel.swinia3.setEnabled(false);
+			}
+			else{
+				ExchangePanel.swinia3.setEnabled(true);
+			}
+			if(player1.count(3)<2){									//2 krowy= 1 kon
+				ExchangePanel.kon1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.kon1.setEnabled(true);
+			}
+			if(player1.count(4)<1){									//1 kon=2 krowy
+				ExchangePanel.krowa2.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa2.setEnabled(true);
+			}
+			if(player1.count(1)<1){									//1 owca=1 maly pies
+				ExchangePanel.malypies1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.malypies1.setEnabled(true);
+			}
+			if(player1.count(5)<1){									//1 maly pies=1 owca
+				ExchangePanel.owca1pies.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca1pies.setEnabled(true);
+			}
+			if(player1.count(4)<1){									//1 krowa=1 duzy pies
+				ExchangePanel.duzypies1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.duzypies1.setEnabled(true);
+			}
+			if(player1.count(6)<1){									//1 duzy pies=1 krowa
+				ExchangePanel.krowa1pies.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa1pies.setEnabled(true);
+			}
+		}
+		else if(flaga_tury==2){
+			if(player2.count(0)<6){
+				ExchangePanel.owca1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca1.setEnabled(true);
+			}
+			if(player2.count(1)<1){
+				ExchangePanel.krolik6.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krolik6.setEnabled(true);
+			}
+			if(player2.count(1)<2){									//2 owce
+				ExchangePanel.swinia1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.swinia1.setEnabled(true);
+			}
+			if(player2.count(2)<1){									//1 swinia=2 owce
+				ExchangePanel.owca2.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca2.setEnabled(true);
+			}
+			if(player2.count(2)<3){									//3 swnie=1 krowa
+				ExchangePanel.krowa1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa1.setEnabled(true);
+			}
+			if(player2.count(3)<1){									//1 krowa=3 swinie
+				ExchangePanel.swinia3.setEnabled(false);
+			}
+			else{
+				ExchangePanel.swinia3.setEnabled(true);
+			}
+			if(player2.count(3)<2){									//2 krowy= 1 kon
+				ExchangePanel.kon1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.kon1.setEnabled(true);
+			}
+			if(player2.count(4)<1){									//1 kon=2 krowy
+				ExchangePanel.krowa2.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa2.setEnabled(true);
+			}
+			if(player2.count(1)<1){									//1 owca=1 maly pies
+				ExchangePanel.malypies1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.malypies1.setEnabled(true);
+			}
+			if(player2.count(5)<1){									//1 maly pies=1 owca
+				ExchangePanel.owca1pies.setEnabled(false);
+			}
+			else{
+				ExchangePanel.owca1pies.setEnabled(true);
+			}
+			if(player2.count(4)<1){									//1 krowa=1 duzy pies
+				ExchangePanel.duzypies1.setEnabled(false);
+			}
+			else{
+				ExchangePanel.duzypies1.setEnabled(true);
+			}
+			if(player2.count(6)<1){									//1 duzy pies=1 krowa
+				ExchangePanel.krowa1pies.setEnabled(false);
+			}
+			else{
+				ExchangePanel.krowa1pies.setEnabled(true);
+			}
+		}
+	}
 	protected void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(tlo, 0, 0, width, height, null);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if(flaga_tury==1){
+			if(source == ExchangePanel.owca1){
+				player1.iloscKrolik(player1.count(0)-6);
+				player1.iloscOwca(player1.count(1)+1);
+			}
+			else if(source == ExchangePanel.krolik6){
+				player1.iloscOwca(player1.count(1)-1);
+				player1.iloscKrolik(player1.count(0)+6);
+			}
+			else if(source == ExchangePanel.swinia1){
+				player1.iloscOwca(player1.count(1)-2);
+				player1.iloscSwinia(player1.count(2)+1);
+			}
+			else if(source == ExchangePanel.owca2){
+				player1.iloscSwinia(player1.count(2)-1);
+				player1.iloscOwca(player1.count(1)+2);
+			}
+			else if(source == ExchangePanel.krowa1){
+				player1.iloscSwinia(player1.count(2)-3);
+				player1.iloscKrowa(player1.count(3)+1);
+			}
+			else if(source == ExchangePanel.swinia3){
+				player1.iloscKrowa(player1.count(3)-1);
+				player1.iloscSwinia(player1.count(2)+3);
+			}
+			else if(source == ExchangePanel.kon1){
+				player1.iloscKrowa(player1.count(3)-2);
+				player1.iloscKon(player1.count(4)+1);
+			}
+			else if(source == ExchangePanel.krowa2){
+				player1.iloscKon(player1.count(4)-1);
+				player1.iloscKrowa(player1.count(3)+2);
+			}
+			else if(source == ExchangePanel.malypies1){
+				player1.iloscOwca(player1.count(1)-1);
+				player1.iloscMPies(player1.count(5)+1);
+			}
+			else if(source == ExchangePanel.owca1pies){
+				player1.iloscMPies(player1.count(5)-1);
+				player1.iloscOwca(player1.count(1)+1);
+			}
+			else if(source == ExchangePanel.duzypies1){
+				player1.iloscKrowa(player1.count(3)-1);
+				player1.iloscDPies(player1.count(6)+1);
+			}
+			else if(source == ExchangePanel.krowa1pies){
+				player1.iloscDPies(player1.count(6)-1);
+				player1.iloscKrowa(player1.count(3)+1);
+			}
+		}
+		else if(flaga_tury==2){
+			if(source == ExchangePanel.owca1){
+				player2.iloscKrolik(player2.count(0)-6);
+				player2.iloscOwca(player2.count(1)+1);
+			}
+			else if(source == ExchangePanel.krolik6){
+				player2.iloscOwca(player2.count(1)-1);
+				player2.iloscKrolik(player2.count(0)+6);
+			}
+			else if(source == ExchangePanel.swinia1){
+				player2.iloscOwca(player2.count(1)-2);
+				player2.iloscSwinia(player2.count(2)+1);
+			}
+			else if(source == ExchangePanel.owca2){
+				player2.iloscSwinia(player2.count(2)-1);
+				player2.iloscOwca(player2.count(1)+2);
+			}
+			else if(source == ExchangePanel.krowa1){
+				player2.iloscSwinia(player2.count(2)-3);
+				player2.iloscKrowa(player2.count(3)+1);
+			}
+			else if(source == ExchangePanel.swinia3){
+				player2.iloscKrowa(player2.count(3)-1);
+				player2.iloscSwinia(player2.count(2)+3);
+			}
+			else if(source == ExchangePanel.kon1){
+				player2.iloscKrowa(player2.count(3)-2);
+				player2.iloscKon(player2.count(4)+1);
+			}
+			else if(source == ExchangePanel.krowa2){
+				player2.iloscKon(player2.count(4)-1);
+				player2.iloscKrowa(player2.count(3)+2);
+			}
+			else if(source == ExchangePanel.malypies1){
+				player2.iloscOwca(player2.count(1)-1);
+				player2.iloscMPies(player2.count(5)+1);
+			}
+			else if(source == ExchangePanel.owca1pies){
+				player2.iloscMPies(player2.count(5)-1);
+				player2.iloscOwca(player2.count(1)+1);
+			}
+			else if(source == ExchangePanel.duzypies1){
+				player2.iloscKrowa(player2.count(3)-1);
+				player2.iloscDPies(player2.count(6)+1);
+			}
+			else if(source == ExchangePanel.krowa1pies){
+				player2.iloscDPies(player2.count(6)-1);
+				player2.iloscKrowa(player2.count(3)+1);
+			}
+		}
+	updateAnimals();	
 	}
 }

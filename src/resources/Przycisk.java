@@ -66,12 +66,13 @@ class Powrot extends Przycisk{
 		addActionListener(al);
 	}
 }
-class Zwierze extends JButton{
+class Zwierze extends JButton implements ActionListener{
 
 	
 	private BufferedImage img;
 	private Dimension wym;
-	Zwierze(String s){
+	
+	Zwierze(String s, ActionListener al){
 		super();
 		String src = "src/graphics/"+s+".gif";
 		try {
@@ -85,6 +86,15 @@ class Zwierze extends JButton{
 		setPreferredSize(wym);
 		setMinimumSize(wym);
 		setMaximumSize(wym);
+		addActionListener(al);
+		addActionListener(this);
+		setEnabled(false);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		setEnabled(false);
+		
 	}
 }
 
