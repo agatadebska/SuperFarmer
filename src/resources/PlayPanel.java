@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 public class PlayPanel extends Panel implements ActionListener{
 	
 
-	private BufferedImage tlo;
+	static BufferedImage tlo;
 	static Player player1, player2;
 	static PlayerPanel panel_pl1, panel_pl2;
 	DicePanel dice_panel;
@@ -25,7 +25,7 @@ public class PlayPanel extends Panel implements ActionListener{
 	PlayPanel(ActionListener actionL){								//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
 		
 		try {														//Wczytywanie obrazka (tlo)
-			tlo = ImageIO.read(new File("src/graphics/trawa.jpg"));
+			tlo = ImageIO.read(new File("src/graphics/player1.jpg"));
 		} catch (IOException e) {
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
@@ -33,8 +33,8 @@ public class PlayPanel extends Panel implements ActionListener{
 		
 	setLayout(null);
 	exch_panel = new ExchangePanel(actionL, this);
-	panel_pl1 = new PlayerPanel(actionL);
-	panel_pl2 = new PlayerPanel(actionL);
+	panel_pl1 = new PlayerPanel("Gracz 1", actionL);
+	panel_pl2 = new PlayerPanel("Gracz 2", actionL);
 	dice_panel = new DicePanel();
 	
 	add(exch_panel);
@@ -287,11 +287,24 @@ public class PlayPanel extends Panel implements ActionListener{
 	static void switchPlayer(){
 		if(PlayPanel.flaga_tury==1){
 		PlayPanel.flaga_tury=2;
+		try {														//Wczytywanie obrazka (tlo)
+			tlo = ImageIO.read(new File("src/graphics/player2.jpg"));
+		} catch (IOException e) {
+			System.err.println("Blad odczytu obrazka");
+			e.printStackTrace();
+		}
 	}
 		else if(PlayPanel.flaga_tury==2){
 			PlayPanel.flaga_tury=1;
+			try {														//Wczytywanie obrazka (tlo)
+				tlo = ImageIO.read(new File("src/graphics/player1.jpg"));
+			} catch (IOException e) {
+				System.err.println("Blad odczytu obrazka");
+				e.printStackTrace();
+			}
 		}
 	}
+	
 	static void changeExDisable(){
 		if(flaga_tury==1){
 			if(player1.count(0)<6 || player1.count(1)+1+player2.count(1)>=24){
@@ -566,6 +579,6 @@ public class PlayPanel extends Panel implements ActionListener{
 				player2.iloscKrowa(player2.count(3)+1);
 			}
 		}
-	updateAnimals();	
+	updateAnimals();
 	}
 }

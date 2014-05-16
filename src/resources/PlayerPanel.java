@@ -24,11 +24,11 @@ public class PlayerPanel extends JPanel{
 	Tile malypies = new Tile("malypies");
 	Tile duzypies = new Tile("duzypies");
 	
-	PlayerPanel(ActionListener actionL){
+	PlayerPanel(String nazwa_gracza, ActionListener actionL){
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setOpaque(false);
 		
-		JLabel player = new JLabel("Gracz 1");
+		JLabel player = new JLabel(nazwa_gracza);
 		player.setAlignmentX(CENTER_ALIGNMENT);
 		player.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 		//player.setForeground(Color.GREEN);
