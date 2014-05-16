@@ -90,33 +90,70 @@ public class PlayPanel extends Panel implements ActionListener{
 			else if(tabl_kostki[0]==tabl_kostki[1] && tabl_kostki[0]<4){				//krolik-krolik, owca-owca lub swinia-swinia
 				
 				if(tabl_kostki[0]==1){
-					
-					player1.iloscKrolik(player1.count(0)+((player1.count(0)+2)/2));
+					if(player1.count(0)+((player1.count(0)+2)/2)+player2.count(0)<=60){
+						player1.iloscKrolik(player1.count(0)+((player1.count(0)+2)/2));
+					}
+					else if(60-player2.count(0)>=0){
+						player1.iloscKrolik(60-player2.count(0));
+					}
 				}
 				else if(tabl_kostki[0]==2){
-					
-					player1.iloscOwca(player1.count(1)+((player1.count(1)+2)/2));
+					if(player1.count(1)+((player1.count(1)+2)/2)+player2.count(1)<=24){
+						player1.iloscOwca(player1.count(1)+((player1.count(1)+2)/2));
+					}
+					else if(24-player2.count(1)>=0){
+						player1.iloscOwca(24-player2.count(1));
+					}
 				}
 				else if(tabl_kostki[0]==3){
-					
-					player1.iloscSwinia(player1.count(2)+((player1.count(2)+2)/2));
+					if(player1.count(2)+((player1.count(2)+2)/2)+player2.count(2)<=20){
+						player1.iloscSwinia(player1.count(2)+((player1.count(2)+2)/2));
+					}
+					else if(20-player2.count(2)>=0){
+						player1.iloscSwinia(20-player2.count(2));
+					}
 				}
 			}
 			else{
 				if(tabl_kostki[0]==1 || tabl_kostki[1]==1){
-					player1.iloscKrolik(player1.count(0)+((player1.count(0)+1)/2));
+					if(player1.count(0)+((player1.count(0)+1)/2)+player2.count(0)<=60){
+						player1.iloscKrolik(player1.count(0)+((player1.count(0)+1)/2));
+					}
+					else if(60-player2.count(0)>=0){
+						player1.iloscKrolik(60-player2.count(0));
+					}
 				}
 				if(tabl_kostki[0]==2 || tabl_kostki[1]==2){
-					player1.iloscOwca(player1.count(1)+((player1.count(1)+1)/2));
+					if(player1.count(1)+((player1.count(1)+1)/2)+player2.count(1)<=24){
+						player1.iloscOwca(player1.count(1)+((player1.count(1)+1)/2));
+					}
+					else if(24-player2.count(1)>=0){
+						player1.iloscOwca(24-player2.count(1));
+					}
 				}
 				if(tabl_kostki[0]==3 || tabl_kostki[1]==3){
-					player1.iloscSwinia(player1.count(2)+((player1.count(2)+1)/2));
+					if(player1.count(2)+((player1.count(2)+1)/2)+player2.count(2)<=20){
+						player1.iloscSwinia(player1.count(2)+((player1.count(2)+1)/2));
+					}
+					else if(20-player2.count(2)>=0){
+						player1.iloscSwinia(20-player2.count(2));
+					}
 				}
 				if(tabl_kostki[0]==4){
-					player1.iloscKrowa(player1.count(3)+((player1.count(3)+1)/2));
+					if(player1.count(3)+((player1.count(3)+1)/2)+player2.count(3)<=12){
+						player1.iloscKrowa(player1.count(3)+((player1.count(3)+1)/2));
+					}
+					else if(12-player2.count(3)>=0){
+						player1.iloscKrowa(12-player2.count(3));
+					}
 				}
 				if(tabl_kostki[1]==4){
-					player1.iloscKon(player1.count(4)+((player1.count(4)+1)/2));
+					if(player1.count(4)+((player1.count(4)+1)/2)+player2.count(4)<=6){
+						player1.iloscKon(player1.count(4)+((player1.count(4)+1)/2));
+					}
+					else if(6-player2.count(4)>=0){
+						player1.iloscKon(6-player2.count(4));
+					}
 				}
 			}
 		}
@@ -159,36 +196,73 @@ public class PlayPanel extends Panel implements ActionListener{
 			else if(tabl_kostki[0]==tabl_kostki[1] && tabl_kostki[0]<4){				//krolik-krolik, owca-owca lub swinia-swinia
 				
 				if(tabl_kostki[0]==1){
-					
-					player2.iloscKrolik(player2.count(0)+((player2.count(0)+2)/2));
+					if(player2.count(0)+((player2.count(0)+2)/2)+player1.count(0)<=60){
+						player2.iloscKrolik(player2.count(0)+((player2.count(0)+2)/2));
+					}
+					else if(60-player1.count(0)>=0){
+						player2.iloscKrolik(60-player1.count(0));
+					}
 				}
 				else if(tabl_kostki[0]==2){
-					
-					player2.iloscOwca(player2.count(1)+((player2.count(1)+2)/2));
+					if(player2.count(1)+((player2.count(1)+2)/2)+player1.count(1)<=24){
+						player2.iloscOwca(player2.count(1)+((player2.count(1)+2)/2));
+					}
+					else if(24-player1.count(1)>=0){
+						player2.iloscOwca(24-player1.count(1));
+					}
 				}
 				else if(tabl_kostki[0]==3){
-					
-					player2.iloscSwinia(player2.count(2)+((player2.count(2)+2)/2));
+					if(player2.count(2)+((player2.count(2)+2)/2)+player1.count(2)<=20){
+						player2.iloscSwinia(player2.count(2)+((player2.count(2)+2)/2));
+					}
+					else if(20-player1.count(2)>=0){
+						player2.iloscSwinia(20-player1.count(2));
+					}
 				}
 			}
 			else{
 				if(tabl_kostki[0]==1 || tabl_kostki[1]==1){
-					player2.iloscKrolik(player2.count(0)+((player2.count(0)+1)/2));
+					if(player2.count(0)+((player2.count(0)+1)/2)+player1.count(0)<=60){
+						player2.iloscKrolik(player2.count(0)+((player2.count(0)+1)/2));
+					}
+					else if(60-player1.count(0)>=0){
+						player2.iloscKrolik(60-player1.count(0));
+					}
 				}
 				if(tabl_kostki[0]==2 || tabl_kostki[1]==2){
-					player2.iloscOwca(player2.count(1)+((player2.count(1)+1)/2));
+					if(player2.count(1)+((player2.count(1)+1)/2)+player1.count(1)<=24){
+						player2.iloscOwca(player2.count(1)+((player2.count(1)+1)/2));
+					}
+					else if(24-player1.count(1)>=0){
+						player2.iloscOwca(24-player1.count(1));
+					}
 				}
 				if(tabl_kostki[0]==3 || tabl_kostki[1]==3){
-					player2.iloscSwinia(player2.count(2)+((player2.count(2)+1)/2));
+					if(player2.count(2)+((player2.count(2)+1)/2)+player1.count(2)<=20){
+						player2.iloscSwinia(player2.count(2)+((player2.count(2)+1)/2));
+					}
+					else if(20-player1.count(2)>=0){
+						player2.iloscSwinia(20-player1.count(2));
+					}
 				}
 				if(tabl_kostki[0]==4){
-					player2.iloscKrowa(player2.count(3)+((player2.count(3)+1)/2));
+					if(player2.count(3)+((player2.count(3)+1)/2)+player1.count(3)<=12){
+						player2.iloscKrowa(player2.count(3)+((player2.count(3)+1)/2));
+					}
+					else if(12-player1.count(3)>=0){
+						player2.iloscKrowa(12-player1.count(3));
+					}
 				}
 				if(tabl_kostki[1]==4){
-					player2.iloscKon(player2.count(4)+((player2.count(4)+1)/2));
-				}
+					if(player2.count(4)+((player2.count(4)+1)/2)+player1.count(4)<=6){
+						player2.iloscKon(player2.count(4)+((player2.count(4)+1)/2));
+					}
+					else if(6-player1.count(4)>=0){
+						player2.iloscKon(6-player1.count(4));
+					}
 			}
 		}
+	}
 		updateAnimals();
 		switchPlayer();
 		changeExDisable();
