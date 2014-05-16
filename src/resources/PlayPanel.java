@@ -294,49 +294,49 @@ public class PlayPanel extends Panel implements ActionListener{
 	}
 	static void changeExDisable(){
 		if(flaga_tury==1){
-			if(player1.count(0)<6){
+			if(player1.count(0)<6 || player1.count(1)+1+player2.count(1)>=24){
 				ExchangePanel.owca1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.owca1.setEnabled(true);
 			}
-			if(player1.count(1)<1){
+			if(player1.count(1)<1 || player1.count(0)+6+player2.count(0)>=60){
 				ExchangePanel.krolik6.setEnabled(false);
 			}
 			else{
 				ExchangePanel.krolik6.setEnabled(true);
 			}
-			if(player1.count(1)<2){									//2 owce= 1 swinia
+			if(player1.count(1)<2 || player1.count(2)+1+player2.count(2)>=20){									//2 owce= 1 swinia
 				ExchangePanel.swinia1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.swinia1.setEnabled(true);
 			}
-			if(player1.count(2)<1){									//1 swinia=2 owce
+			if(player1.count(2)<1 || player1.count(1)+2+player2.count(1)>=24){									//1 swinia=2 owce
 				ExchangePanel.owca2.setEnabled(false);
 			}
 			else{
 				ExchangePanel.owca2.setEnabled(true);
 			}
-			if(player1.count(2)<3){									//3 swnie=1 krowa
+			if(player1.count(2)<3 || player1.count(3)+1+player2.count(3)>=12){									//3 swnie=1 krowa
 				ExchangePanel.krowa1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.krowa1.setEnabled(true);
 			}
-			if(player1.count(3)<1){									//1 krowa=3 swinie
+			if(player1.count(3)<1 || player1.count(2)+3+player2.count(2)>=20){									//1 krowa=3 swinie
 				ExchangePanel.swinia3.setEnabled(false);
 			}
 			else{
 				ExchangePanel.swinia3.setEnabled(true);
 			}
-			if(player1.count(3)<2){									//2 krowy= 1 kon
+			if(player1.count(3)<2 || player1.count(4)+1+player2.count(4)>=6){									//2 krowy= 1 kon
 				ExchangePanel.kon1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.kon1.setEnabled(true);
 			}
-			if(player1.count(4)<1){									//1 kon=2 krowy
+			if(player1.count(4)<1 || player1.count(3)+2+player2.count(3)>=12){									//1 kon=2 krowy
 				ExchangePanel.krowa2.setEnabled(false);
 			}
 			else{
@@ -348,7 +348,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.malypies1.setEnabled(true);
 			}
-			if(player1.count(5)<1){									//1 maly pies=1 owca
+			if(player1.count(5)<1 || player1.count(1)+1+player2.count(1)>=24){									//1 maly pies=1 owca
 				ExchangePanel.owca1pies.setEnabled(false);
 			}
 			else{
@@ -360,7 +360,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.duzypies1.setEnabled(true);
 			}
-			if(player1.count(6)<1){									//1 duzy pies=1 krowa
+			if(player1.count(6)<1 || player1.count(3)+1+player2.count(3)>=12){									//1 duzy pies=1 krowa
 				ExchangePanel.krowa1pies.setEnabled(false);
 			}
 			else{
@@ -368,49 +368,49 @@ public class PlayPanel extends Panel implements ActionListener{
 			}
 		}
 		else if(flaga_tury==2){
-			if(player2.count(0)<6){
+			if(player2.count(0)<6 || player1.count(1)+1+player2.count(1)>=24){
 				ExchangePanel.owca1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.owca1.setEnabled(true);
 			}
-			if(player2.count(1)<1){
+			if(player2.count(1)<1 || player1.count(0)+6+player2.count(0)>=60){
 				ExchangePanel.krolik6.setEnabled(false);
 			}
 			else{
 				ExchangePanel.krolik6.setEnabled(true);
 			}
-			if(player2.count(1)<2){									//2 owce
+			if(player2.count(1)<2 || player1.count(2)+1+player2.count(2)>=20){									//2 owce= 1 swinia
 				ExchangePanel.swinia1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.swinia1.setEnabled(true);
 			}
-			if(player2.count(2)<1){									//1 swinia=2 owce
+			if(player2.count(2)<1 || player1.count(1)+2+player2.count(1)>=24){									//1 swinia=2 owce
 				ExchangePanel.owca2.setEnabled(false);
 			}
 			else{
 				ExchangePanel.owca2.setEnabled(true);
 			}
-			if(player2.count(2)<3){									//3 swnie=1 krowa
+			if(player2.count(2)<3 || player1.count(3)+1+player2.count(3)>=12){									//3 swnie=1 krowa
 				ExchangePanel.krowa1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.krowa1.setEnabled(true);
 			}
-			if(player2.count(3)<1){									//1 krowa=3 swinie
+			if(player2.count(3)<1 || player1.count(2)+3+player2.count(2)>=20){									//1 krowa=3 swinie
 				ExchangePanel.swinia3.setEnabled(false);
 			}
 			else{
 				ExchangePanel.swinia3.setEnabled(true);
 			}
-			if(player2.count(3)<2){									//2 krowy= 1 kon
+			if(player2.count(3)<2 || player1.count(4)+1+player2.count(4)>=6){									//2 krowy= 1 kon
 				ExchangePanel.kon1.setEnabled(false);
 			}
 			else{
 				ExchangePanel.kon1.setEnabled(true);
 			}
-			if(player2.count(4)<1){									//1 kon=2 krowy
+			if(player2.count(4)<1 || player1.count(3)+2+player2.count(3)>=12){									//1 kon=2 krowy
 				ExchangePanel.krowa2.setEnabled(false);
 			}
 			else{
@@ -422,7 +422,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.malypies1.setEnabled(true);
 			}
-			if(player2.count(5)<1){									//1 maly pies=1 owca
+			if(player2.count(5)<1 || player1.count(1)+1+player2.count(1)>=24){									//1 maly pies=1 owca
 				ExchangePanel.owca1pies.setEnabled(false);
 			}
 			else{
@@ -434,7 +434,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			else{
 				ExchangePanel.duzypies1.setEnabled(true);
 			}
-			if(player2.count(6)<1){									//1 duzy pies=1 krowa
+			if(player2.count(6)<1 || player1.count(3)+1+player2.count(3)>=12){									//1 duzy pies=1 krowa
 				ExchangePanel.krowa1pies.setEnabled(false);
 			}
 			else{

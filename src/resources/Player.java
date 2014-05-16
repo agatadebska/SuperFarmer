@@ -7,7 +7,7 @@ public class Player{
 	
 	public Player(){
 		for (int i=0; i<=6; i++){
-			tabl_player[i]= 0;
+			tabl_player[i]= 10;
 		}
 	}
 	int count(int nr_zw){
