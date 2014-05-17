@@ -25,7 +25,7 @@ public class PlayerPanel extends JPanel{
 	Tile duzypies = new Tile("duzypies");
 	
 	PlayerPanel(String nazwa_gracza, ActionListener actionL){
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setOpaque(false);
 		
 		JLabel player = new JLabel(nazwa_gracza);
@@ -43,7 +43,7 @@ public class PlayerPanel extends JPanel{
 		
 		dogPanel.add(Box.createHorizontalGlue());
 		dogPanel.add(malypies);
-		dogPanel.add(Box.createHorizontalStrut(20));
+		dogPanel.add(Box.createHorizontalStrut(10));
 		dogPanel.add(duzypies);
 		dogPanel.add(Box.createHorizontalGlue());
 		add(dogPanel);
@@ -112,6 +112,7 @@ class Tile extends JLabel{					//kafelek (obrazek)
 		name = new String(s);
 		//add(num);
 		setAlignmentY(Component.CENTER_ALIGNMENT);
+		//setBounds(0,0,100,80);
 		setIcon(new ImageIcon(img));
 		setIconTextGap(-27);
 		setVerticalTextPosition(TOP);

@@ -14,7 +14,7 @@ import javax.swing.BoxLayout;
 public class MenuPanel extends Panel{											//Klasa implementujaca menu glowne gry
 
 	private BufferedImage tlo;
-	
+	GrajDalej grajDalej;
 	MenuPanel(ActionListener actionL){									//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
 		try {															//Wczytywanie obrazka (tlo)
 			tlo = ImageIO.read(new File("src/graphics/tlo_new.jpg"));
@@ -28,16 +28,22 @@ public class MenuPanel extends Panel{											//Klasa implementujaca menu glow
 		wyjscie.setAlignmentX(Component.CENTER_ALIGNMENT);
 		Zasady zasady = new Zasady(actionL);
 		zasady.setAlignmentX(Component.CENTER_ALIGNMENT);
-		Graj graj = new Graj(actionL);
-		graj.setAlignmentX(Component.CENTER_ALIGNMENT);
+		NowaGra nowaGra = new NowaGra(actionL);
+		nowaGra.setAlignmentX(Component.CENTER_ALIGNMENT);
+		grajDalej = new GrajDalej(actionL);
+		grajDalej.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		add(Box.createVerticalGlue());
-		add(graj);
+		add(nowaGra);
+		add(Box.createVerticalStrut(10));
+		add(grajDalej);
 		add(Box.createVerticalStrut(10));
 		add(zasady);
 		add(Box.createVerticalStrut(10));
 		add(wyjscie);
 		add(Box.createVerticalGlue());
+		
+		grajDalej.setEnabled(false);
 	}
 	
 	protected void paintComponent(Graphics g){

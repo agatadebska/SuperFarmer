@@ -15,11 +15,12 @@ public class PlayPanel extends Panel implements ActionListener{
 	static BufferedImage tlo;
 	static Player player1, player2;
 	static PlayerPanel panel_pl1, panel_pl2;
-	DicePanel dice_panel;
+	static DicePanel dice_panel;
 	ExchangePanel exch_panel;
 	static int[] tabl_kostki = new int[2];
 	static int flaga_tury=1;
 	static boolean flaga_wym=true;
+	static int flaga_wygr=0;
 	
 	
 	PlayPanel(ActionListener actionL){								//przekazuje ActionListenera, zeby wiedziec kto bedzie nasluchiwal (Okno)
@@ -266,6 +267,8 @@ public class PlayPanel extends Panel implements ActionListener{
 		updateAnimals();
 		switchPlayer();
 		changeExDisable();
+		checkIfWon(player1);
+		checkIfWon(player2);
 	}
 
 	static void updateAnimals(){
@@ -285,7 +288,7 @@ public class PlayPanel extends Panel implements ActionListener{
 		panel_pl2.duzyPies(player2.count(6));
 	}
 	static void switchPlayer(){
-		if(PlayPanel.flaga_tury==1){
+		if(PlayPanel.flaga_tury==1 && flaga_wygr==0){
 		PlayPanel.flaga_tury=2;
 		try {														//Wczytywanie obrazka (tlo)
 			tlo = ImageIO.read(new File("src/graphics/player2.jpg"));
@@ -295,7 +298,7 @@ public class PlayPanel extends Panel implements ActionListener{
 			e.printStackTrace();
 		}
 	}
-		else if(PlayPanel.flaga_tury==2){
+		else if(PlayPanel.flaga_tury==2 && flaga_wygr==0){
 			PlayPanel.flaga_tury=1;
 			try {														//Wczytywanie obrazka (tlo)
 				tlo = ImageIO.read(new File("src/graphics/player1.jpg"));
@@ -476,7 +479,47 @@ public class PlayPanel extends Panel implements ActionListener{
 		ExchangePanel.krowa1pies.setEnabled(false);
 		
 	}
-
+	static void checkIfWon(Player player){
+		if(player.count(0)>0 && player.count(1)>0 && player.count(2)>0 && player.count(3)>0 && player.count(4)>0){
+			disableExchButtons();
+			if(player == player1){
+				BufferedImage napis1 = null;
+				try {														//Wczytywanie obrazka (tlo)
+					napis1 = ImageIO.read(new File("src/graphics/wygr1.png"));
+				} catch (IOException e) {
+					System.err.println("Blad odczytu obrazka");
+					e.printStackTrace();
+				}
+				dice_panel.displayWon(napis1);
+				flaga_wygr=1;
+				try {														//Wczytywanie obrazka (tlo)
+					tlo = ImageIO.read(new File("src/graphics/player1.jpg"));
+				} catch (IOException exc) {
+					System.err.println("Blad odczytu obrazka");
+					exc.printStackTrace();
+				}
+			}
+			else{
+				BufferedImage napis2 = null;
+				try {														//Wczytywanie obrazka (tlo)
+					napis2 = ImageIO.read(new File("src/graphics/wygr2.png"));
+				} catch (IOException e) {
+					System.err.println("Blad odczytu obrazka");
+					e.printStackTrace();
+				}
+				dice_panel.displayWon(napis2);
+				flaga_wygr=2;
+				try {														//Wczytywanie obrazka (tlo)
+					tlo = ImageIO.read(new File("src/graphics/player2.jpg"));
+				} catch (IOException exc) {
+					System.err.println("Blad odczytu obrazka");
+					exc.printStackTrace();
+				}
+			}
+			
+		}
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		disableExchButtons();
@@ -580,6 +623,9 @@ public class PlayPanel extends Panel implements ActionListener{
 				player2.iloscKrowa(player2.count(3)+1);
 			}
 		}
+	
 	updateAnimals();
+	checkIfWon(player1);
+	checkIfWon(player2);
 	}
 }

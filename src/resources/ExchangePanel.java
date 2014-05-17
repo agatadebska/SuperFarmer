@@ -28,7 +28,7 @@
 			setOpaque(false);	
 			FlowLayout layout = new FlowLayout();
 			layout.setHgap(0);
-			layout.setVgap(10);
+			layout.setVgap(20);
 			setLayout(layout);
 			JLabel wym = new JLabel("Tabela wymiany");
 			wym.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));

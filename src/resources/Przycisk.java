@@ -47,12 +47,22 @@ class Zasady extends Przycisk{
 
 }
 
-class Graj extends Przycisk{
+class NowaGra extends Przycisk{
 
 
 
-	Graj(ActionListener al){
-		super("Graj");
+	NowaGra(ActionListener al){
+		super("Nowa Gra");
+		addActionListener(al);
+	}
+}
+
+class GrajDalej extends Przycisk{
+
+
+
+	GrajDalej(ActionListener al){
+		super("Graj dalej");
 		addActionListener(al);
 	}
 }

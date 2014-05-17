@@ -1,18 +1,22 @@
 package resources;
 
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class DicePanel extends JPanel implements ActionListener{
 
-	public Kostka1 kostka1;
-	public Kostka2 kostka2;
+	static Kostka1 kostka1;
+	static Kostka2 kostka2;
 	DicePanel(ActionListener actionL){
 		setOpaque(false);
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -28,6 +32,17 @@ public class DicePanel extends JPanel implements ActionListener{
 		add(Box.createHorizontalStrut(40));
 		add(kostka2);
 		add(Box.createHorizontalGlue());
+	}
+	void displayWon(BufferedImage nazwa_gracza){
+		kostka1.setVisible(false);
+		kostka2.setVisible(false);
+		setLayout(null);
+		JLabel won_label = new JLabel();
+		won_label.setIcon(new ImageIcon(nazwa_gracza));
+		won_label.setBounds(0, 0, 600, 150);
+		won_label.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
+		add(won_label);
+		repaint();
 	}
 	
 	public void actionPerformed(ActionEvent e) {
