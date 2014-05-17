@@ -63,5 +63,11 @@ public class Okno extends JFrame implements ActionListener{
 			rulesPanel.setVisible(false);
 			playPanel.setVisible(false);
 		}
+		else if(source instanceof Kostka1){
+			playPanel.repaint();
+		}
+		else if(source instanceof Kostka2){
+			playPanel.repaint();
+		}
 	}
 }

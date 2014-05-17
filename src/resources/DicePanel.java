@@ -13,16 +13,18 @@ public class DicePanel extends JPanel implements ActionListener{
 
 	public Kostka1 kostka1;
 	public Kostka2 kostka2;
-	DicePanel(){
+	DicePanel(ActionListener actionL){
 		setOpaque(false);
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		setBounds( 0, 200, 600, 150);
 		kostka1 = new Kostka1(this);
 		kostka1.setAlignmentY(Component.CENTER_ALIGNMENT);
+		kostka1.addActionListener(actionL);
 		add(Box.createHorizontalGlue());
 		add(kostka1);
 		kostka2 = new Kostka2(this);
 		kostka2.setAlignmentY(Component.CENTER_ALIGNMENT);
+		kostka2.addActionListener(actionL);
 		add(Box.createHorizontalStrut(40));
 		add(kostka2);
 		add(Box.createHorizontalGlue());
@@ -81,6 +83,7 @@ public class DicePanel extends JPanel implements ActionListener{
 			kostka2.setEnabled(true);
 
 			PlayPanel.countAnimals();
+			
 		}
 		
 	}

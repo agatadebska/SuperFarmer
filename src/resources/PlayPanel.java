@@ -35,7 +35,7 @@ public class PlayPanel extends Panel implements ActionListener{
 	exch_panel = new ExchangePanel(actionL, this);
 	panel_pl1 = new PlayerPanel("Gracz 1", actionL);
 	panel_pl2 = new PlayerPanel("Gracz 2", actionL);
-	dice_panel = new DicePanel();
+	dice_panel = new DicePanel(actionL);
 	
 	add(exch_panel);
 	add(panel_pl1);
@@ -289,6 +289,7 @@ public class PlayPanel extends Panel implements ActionListener{
 		PlayPanel.flaga_tury=2;
 		try {														//Wczytywanie obrazka (tlo)
 			tlo = ImageIO.read(new File("src/graphics/player2.jpg"));
+			
 		} catch (IOException e) {
 			System.err.println("Blad odczytu obrazka");
 			e.printStackTrace();
